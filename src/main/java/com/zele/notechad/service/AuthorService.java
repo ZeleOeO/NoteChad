@@ -8,8 +8,6 @@ import com.zele.notechad.mapper.AuthorMapper;
 import com.zele.notechad.repository.AuthorRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -23,18 +21,18 @@ public class AuthorService {
     private final AuthorMapper authorMapper;
 
     public ApiResponse<List<AuthorViewDTO>> getAllAuthors() {
-        List<AuthorViewDTO> autthors =  authorRepository.findAll()
+        List<AuthorViewDTO> autthors = authorRepository.findAll()
                 .stream()
                 .map(authorMapper::toAuthorViewDTO)
                 .toList();
         return new ApiResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), autthors);
     }
 
-   public ApiResponse<AuthorViewDTO> getAuthorById(Long id) {
+    public ApiResponse<AuthorViewDTO> getAuthorById(Long id) {
         var author = authorRepository.findById(id).orElse(null);
-       validateAuthor(author);
-       return new ApiResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), authorMapper.toAuthorViewDTO(author));
-   }
+        validateAuthor(author);
+        return new ApiResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), authorMapper.toAuthorViewDTO(author));
+    }
 
     // Helper Methods
     private void validateAuthor(Author author) {

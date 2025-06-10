@@ -24,6 +24,6 @@ public class AuthorController {
 
     @GetMapping("/{id}")
     public ApiResponse<AuthorViewDTO> getAuthorById(@PathVariable Long id) {
-       return authorService.getAuthorById(id);
+        return authorService.getAuthorById(id);
     }
 }
