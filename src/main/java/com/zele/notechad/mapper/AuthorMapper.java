@@ -1,6 +1,6 @@
 package com.zele.notechad.mapper;
 
-import com.zele.notechad.dtos.AuthorViewDTO;
+import com.zele.notechad.dtos.author.AuthorViewDTO;
 import com.zele.notechad.entities.Author;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;

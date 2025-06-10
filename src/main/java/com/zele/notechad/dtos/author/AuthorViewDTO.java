@@ -1,4 +1,4 @@
-package com.zele.notechad.dtos;
+package com.zele.notechad.dtos.author;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

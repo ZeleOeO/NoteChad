@@ -1,7 +1,7 @@
 package com.zele.notechad.controller;
 
 import com.zele.notechad.dtos.ApiResponse;
-import com.zele.notechad.dtos.AuthorViewDTO;
+import com.zele.notechad.dtos.author.AuthorViewDTO;
 import com.zele.notechad.service.AuthorService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
