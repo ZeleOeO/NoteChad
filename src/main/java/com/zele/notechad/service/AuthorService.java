@@ -3,7 +3,7 @@ package com.zele.notechad.service;
 import com.zele.notechad.dtos.ApiResponse;
 import com.zele.notechad.dtos.author.AuthorViewDTO;
 import com.zele.notechad.entities.Author;
-import com.zele.notechad.exception.AuthorNotFoundException;
+import com.zele.notechad.exception.author.AuthorNotFoundException;
 import com.zele.notechad.mapper.AuthorMapper;
 import com.zele.notechad.repository.AuthorRepository;
 import lombok.AllArgsConstructor;
