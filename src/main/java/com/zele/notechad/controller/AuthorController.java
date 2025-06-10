@@ -1,13 +1,11 @@
 package com.zele.notechad.controller;
 
 import com.zele.notechad.dtos.ApiResponse;
+import com.zele.notechad.dtos.author.AuthorCreateRequest;
 import com.zele.notechad.dtos.author.AuthorViewDTO;
 import com.zele.notechad.service.AuthorService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,10 @@ public class AuthorController {
     @GetMapping("/{id}")
     public ApiResponse<AuthorViewDTO> getAuthorById(@PathVariable Long id) {
         return authorService.getAuthorById(id);
+    }
+
+    @PostMapping("/new")
+    public ApiResponse<AuthorViewDTO> addAuthor(@RequestBody AuthorCreateRequest createRequest) {
+        return authorService.createAuthor(createRequest);
     }
 }
