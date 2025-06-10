@@ -1,26 +1,18 @@
 spring:
-  config:
-    activate:
-      on-profile: native
-
   application:
-    name: NoteChad
-
-  docker:
-    compose:
-      enabled: false
+    name: CRSpringBoot
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/notechad-db
-    username: user
-    password: password
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:notechad-db}
+    username: ${POSTGRES_USER:user}
+    password: ${POSTGRES_PASSWORD:password}
 
   jpa:
     hibernate:
       ddl-auto: update
     properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 springdoc:
   api-docs:

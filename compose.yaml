@@ -3,19 +3,31 @@ services:
     image: postgres:latest
     container_name: notechad-db
     environment:
-      POSTGRES-DB: notechad-db
-      POSTGRES-USER: user
-      POSTGRES-PASSWORD: password
+      POSTGRES_DB: notechad-db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+    - "5432:5432"
 
   app:
     build:
       context: .
-      dockerfile:
-
+      dockerfile: Dockerfile
+    image: ozonichi/notechad
+    container_name: notechad-app
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: notechad-db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "8080:8080"
+    restart: on-failure
 
 volumes:
   pgdata:
