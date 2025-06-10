@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: notechad-db
+    environment:
+      POSTGRES-DB: notechad-db
+      POSTGRES-USER: user
+      POSTGRES-PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile:
+
+
+volumes:
+  pgdata:
