@@ -1,0 +1,658 @@
+{
+	"info": {
+		"_postman_id": "19ec1f7c-c2c8-405f-ba75-f59dab4f2084",
+		"name": "NoteChad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44390060",
+		"_collection_link": "https://osezeleoghedgebe.postman.co/workspace/Osezele-Oghedgebe's-Workspace~1d7dadef-9df4-4071-8f82-119b1a1b0fe9/collection/44390060-19ec1f7c-c2c8-405f-ba75-f59dab4f2084?action=share&source=collection_link&creator=44390060"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "notes",
+					"item": [
+						{
+							"name": "update Note",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "nostrud ea exercitation sit",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/notes/update-note/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notes",
+										"update-note",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2965789",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "nostrud ea exercitation sit",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/notes/update-note/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"notes",
+												"update-note",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2965789",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": -74108887,\n  \"message\": \"fugiat id ea\",\n  \"data\": {\n    \"id\": 6645160,\n    \"title\": \"fugiat\",\n    \"content\": \"anim est do\",\n    \"createdAt\": \"incididunt exercitation\",\n    \"updatedAt\": \"ut ea\",\n    \"author\": \"ut incididunt\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "create Note",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "nostrud ea exercitation sit",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/notes/new-note",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notes",
+										"new-note"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "nostrud ea exercitation sit",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/notes/new-note",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"notes",
+												"new-note"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": -74108887,\n  \"message\": \"fugiat id ea\",\n  \"data\": {\n    \"id\": 6645160,\n    \"title\": \"fugiat\",\n    \"content\": \"anim est do\",\n    \"createdAt\": \"incididunt exercitation\",\n    \"updatedAt\": \"ut ea\",\n    \"author\": \"ut incididunt\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "get Note By Author",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/notes/:author",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notes",
+										":author"
+									],
+									"variable": [
+										{
+											"key": "author",
+											"value": "nostrud ea exercitation sit",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/notes/:author",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"notes",
+												":author"
+											],
+											"variable": [
+												{
+													"key": "author",
+													"value": "nostrud ea exercitation sit",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": -74108887,\n  \"message\": \"fugiat id ea\",\n  \"data\": {\n    \"id\": 6645160,\n    \"title\": \"fugiat\",\n    \"content\": \"anim est do\",\n    \"createdAt\": \"incididunt exercitation\",\n    \"updatedAt\": \"ut ea\",\n    \"author\": \"ut incididunt\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete Note",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/notes/delete-note/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notes",
+										"delete-note",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2965789",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/notes/delete-note/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"notes",
+												"delete-note",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2965789",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": -76753068,\n  \"message\": \"dolore ea id laborum\",\n  \"data\": \"reprehenderit ex sunt\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "add Author",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"displayName\": \"Ut sunt ipsum\",\n  \"username\": \"amet\",\n  \"password\": \"dolore Lorem culpa incididunt\",\n  \"confirmPassword\": \"consectetur minim est pariatur labore\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"displayName\": \"Ut sunt ipsum\",\n  \"username\": \"amet\",\n  \"password\": \"dolore Lorem culpa incididunt\",\n  \"confirmPassword\": \"consectetur minim est pariatur labore\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/auth/signup",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": 681863,\n  \"message\": \"exercita\",\n  \"data\": {\n    \"id\": 36692593,\n    \"displayName\": \"ut cupidatat fugiat do dolore\",\n    \"userName\": \"magna\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"sunt esse cillum\",\n  \"password\": \"sit Duis aute\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"sunt esse cillum\",\n  \"password\": \"sit Duis aute\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/auth/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": -76753068,\n  \"message\": \"dolore ea id laborum\",\n  \"data\": \"reprehenderit ex sunt\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "authors",
+					"item": [
+						{
+							"name": "get Author By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/authors/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2965789",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/authors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"authors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2965789",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": 681863,\n  \"message\": \"exercita\",\n  \"data\": {\n    \"id\": 36692593,\n    \"displayName\": \"ut cupidatat fugiat do dolore\",\n    \"userName\": \"magna\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "get All Authors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/authors/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"authors",
+										"all"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/authors/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"authors",
+												"all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"status\": -87530685,\n  \"message\": \"ipsum cillum sit dolor\",\n  \"data\": [\n    {\n      \"id\": -27276078,\n      \"displayName\": \"non mollit occaecat\",\n      \"userName\": \"id minim\"\n    },\n    {\n      \"id\": -3392867,\n      \"displayName\": \"labore aliqua aute\",\n      \"userName\": \"dolore incididunt laboris deserunt\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
