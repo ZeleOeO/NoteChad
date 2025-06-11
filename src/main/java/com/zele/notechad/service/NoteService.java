@@ -2,6 +2,7 @@ package com.zele.notechad.service;
 
 import com.zele.notechad.dtos.ApiResponse;
 import com.zele.notechad.dtos.note.NoteViewDTO;
+import com.zele.notechad.entities.Author;
 import com.zele.notechad.entities.Note;
 import com.zele.notechad.exception.author.AuthorNotFoundException;
 import com.zele.notechad.exception.note.NoteNotFoundException;
@@ -29,29 +30,41 @@ public class NoteService {
 
     public ApiResponse<NoteViewDTO> getNotesByAuthor(String author) {
         var note = noteRepository.findByAuthorUserName(author).orElse(null);
-        if (!validateNote(note)) throw new NoteNotFoundException("Note Not Found");
+        validateNote(note);
         return new ApiResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), noteMapper.toNoteViewDTO(note));
     }
 
     public ApiResponse<NoteViewDTO> createNewNote(String title, HttpServletRequest request) {
-        String authToken = request.getHeader("Authorization");
-        authToken = authToken.substring(7);
-        String authorName = jwtService.getUsernameFromToken(authToken);
-        var author = authorRepository.findByUserName(authorName).orElse(null);
-        if (author == null) throw new AuthorNotFoundException("Author Not Found");
         Note note = new Note();
         note.setTitle(title);
-        note.setAuthor(author);
+        note.setAuthor(getAuthorFromToken(request));
         note.setCreatedAt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         noteRepository.save(note);
         return new ApiResponse<>(HttpStatus.CREATED.value(), HttpStatus.CREATED.getReasonPhrase(), noteMapper.toNoteViewDTO(note));
     }
 
-    private boolean validateNote(Note note) {
+
+    public ApiResponse<NoteViewDTO> writeNote(String content, Long noteId, HttpServletRequest request) {
+        Note note = noteRepository.findById(noteId).orElse(null);
+        validateNote(note);
+        note.setContent(content);
+        note.setUpdatedAt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        noteRepository.save(note);
+        return new ApiResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), noteMapper.toNoteViewDTO(note));
+    }
+
+    private Author getAuthorFromToken(HttpServletRequest request) {
+        String authToken = request.getHeader("Authorization");
+        authToken = authToken.substring(7);
+        String authorName = jwtService.getUsernameFromToken(authToken);
+        var author = authorRepository.findByUserName(authorName).orElse(null);
+        if (author == null) throw new AuthorNotFoundException("Author Not Found");
+        return author;
+    }
+    private void validateNote(Note note) {
         if (note == null) {
             log.error("Note is null");
-            return false;
+            throw new NoteNotFoundException("Note Not Found");
         }
-        return true;
     }
 }

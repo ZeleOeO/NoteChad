@@ -22,4 +22,9 @@ public class NoteController {
     public ApiResponse<NoteViewDTO> createNote(@RequestBody String title, HttpServletRequest request) {
         return noteService.createNewNote(title, request);
     }
+
+    @PostMapping("/update-note/{id}")
+    public ApiResponse<NoteViewDTO> updateNote(@PathVariable Long id, @RequestBody String content, HttpServletRequest request) {
+        return noteService.writeNote(content, id, request);
+    }
 }
