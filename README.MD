@@ -44,7 +44,7 @@ NoteChad is a simple notes? blogs? I don't really know, I was just trying my han
 
 
 ## Running
-There are 3 ways to run this project by either using:
+There are 2 ways to run this project by either using:
 <br>
 - Complete Docker Compose:
 ```bash
