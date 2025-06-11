@@ -3,6 +3,7 @@ package com.zele.notechad.exception;
 import com.zele.notechad.dtos.ApiResponse;
 import com.zele.notechad.exception.author.AuthorAlreadyExistsException;
 import com.zele.notechad.exception.author.AuthorNotFoundException;
+import com.zele.notechad.exception.author.AuthorUnauthorizedException;
 import com.zele.notechad.exception.author.PasswordMatchException;
 import com.zele.notechad.exception.note.NoteNotFoundException;
 import jakarta.servlet.ServletException;
@@ -53,5 +54,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleServletException(ServletException ex) {
         ApiResponse<Object> apiResponse = new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage(), null);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiResponse);
+    }
+
+    @ExceptionHandler(AuthorUnauthorizedException.class)
+    public ResponseEntity<ApiResponse<Object>> handleAuthorUnauthorizedException(AuthorUnauthorizedException ex) {
+        ApiResponse<Object> apiResponse = new ApiResponse<>(HttpStatus.UNAUTHORIZED.value(), ex.getMessage(), null);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(apiResponse);
     }
 }

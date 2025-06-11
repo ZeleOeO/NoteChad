@@ -5,6 +5,7 @@ import com.zele.notechad.dtos.note.NoteViewDTO;
 import com.zele.notechad.entities.Author;
 import com.zele.notechad.entities.Note;
 import com.zele.notechad.exception.author.AuthorNotFoundException;
+import com.zele.notechad.exception.author.AuthorUnauthorizedException;
 import com.zele.notechad.exception.note.NoteNotFoundException;
 import com.zele.notechad.mapper.NoteMapper;
 import com.zele.notechad.repository.AuthorRepository;
@@ -46,7 +47,9 @@ public class NoteService {
 
     public ApiResponse<NoteViewDTO> writeNote(String content, Long noteId, HttpServletRequest request) {
         Note note = noteRepository.findById(noteId).orElse(null);
+        Author author = getAuthorFromToken(request);
         validateNote(note);
+        if (!note.getAuthor().getUserName().equals(author.getUserName())) throw new AuthorUnauthorizedException("Author can not edit this note");
         note.setContent(content);
         note.setUpdatedAt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         noteRepository.save(note);
