@@ -3,11 +3,9 @@ package com.zele.notechad.controller;
 import com.zele.notechad.dtos.ApiResponse;
 import com.zele.notechad.dtos.note.NoteViewDTO;
 import com.zele.notechad.service.NoteService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -18,5 +16,10 @@ public class NoteController {
     @GetMapping("/{author}")
     public ApiResponse<NoteViewDTO> getNoteByAuthor(@PathVariable String author) {
         return noteService.getNotesByAuthor(author);
+    }
+
+    @PostMapping("/new-note")
+    public ApiResponse<NoteViewDTO> createNote(@RequestBody String title, HttpServletRequest request) {
+        return noteService.createNewNote(title, request);
     }
 }
