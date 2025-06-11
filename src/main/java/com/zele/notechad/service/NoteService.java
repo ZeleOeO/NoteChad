@@ -46,14 +46,17 @@ public class NoteService {
 
 
     public ApiResponse<NoteViewDTO> writeNote(String content, Long noteId, HttpServletRequest request) {
-        Note note = noteRepository.findById(noteId).orElse(null);
-        Author author = getAuthorFromToken(request);
-        validateNote(note);
-        if (!note.getAuthor().getUserName().equals(author.getUserName())) throw new AuthorUnauthorizedException("Author can not edit this note");
+        Note note = validateAuthor(noteId, request);
         note.setContent(content);
         note.setUpdatedAt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         noteRepository.save(note);
         return new ApiResponse<>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), noteMapper.toNoteViewDTO(note));
+    }
+
+    public ApiResponse<String> deleteNote(Long noteId, HttpServletRequest request) {
+        Note note = validateAuthor(noteId, request);
+        noteRepository.delete(note);
+        return new ApiResponse<>(HttpStatus.OK.value(), "Note Deleted", HttpStatus.OK.getReasonPhrase());
     }
 
     private Author getAuthorFromToken(HttpServletRequest request) {
@@ -64,10 +67,20 @@ public class NoteService {
         if (author == null) throw new AuthorNotFoundException("Author Not Found");
         return author;
     }
+
     private void validateNote(Note note) {
         if (note == null) {
             log.error("Note is null");
             throw new NoteNotFoundException("Note Not Found");
         }
+    }
+
+    private Note validateAuthor(Long noteId, HttpServletRequest request) {
+        Note note = noteRepository.findById(noteId).orElse(null);
+        Author author = getAuthorFromToken(request);
+        validateNote(note);
+        if (!note.getAuthor().getUserName().equals(author.getUserName()))
+            throw new AuthorUnauthorizedException("Author Not Authorized to interact with this note");
+        return note;
     }
 }

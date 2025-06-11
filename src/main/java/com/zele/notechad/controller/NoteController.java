@@ -27,4 +27,9 @@ public class NoteController {
     public ApiResponse<NoteViewDTO> updateNote(@PathVariable Long id, @RequestBody String content, HttpServletRequest request) {
         return noteService.writeNote(content, id, request);
     }
+
+    @DeleteMapping("/delete-note/{id}")
+    public ApiResponse<String> deleteNote(@PathVariable Long id, HttpServletRequest request) {
+        return noteService.deleteNote(id, request);
+    }
 }
