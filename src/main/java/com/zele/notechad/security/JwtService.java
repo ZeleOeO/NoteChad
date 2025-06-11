@@ -3,7 +3,6 @@ package com.zele.notechad.security;
 import com.zele.notechad.tools.SecretKeyGenerator;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,7 @@ public class JwtService {
         return Jwts.builder()
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + (1000*60*3))) // sets session to 3 minutes, pretty sure this is what providus bank uses mtchew
+                .expiration(new Date(System.currentTimeMillis() + (1000 * 60 * 3))) // sets session to 3 minutes, pretty sure this is what providus bank uses mtchew
                 .signWith(secretKey)
                 .compact();
     }

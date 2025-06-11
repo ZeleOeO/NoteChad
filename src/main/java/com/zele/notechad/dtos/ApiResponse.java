@@ -16,10 +16,10 @@ public class ApiResponse<T> {
     public String toString() {
         return String.format(
                 """
-                       "status": %s,
-                       "message": %s,
-                       "data": %s
-                       """,
+                        "status": %s,
+                        "message": %s,
+                        "data": %s
+                        """,
                 status, message, data.toString()
         );
     }
