@@ -11,4 +11,16 @@ public class ApiResponse<T> {
     private int status;
     private String message;
     private T data;
+
+    @Override
+    public String toString() {
+        return String.format(
+                """
+                       "status": %s,
+                       "message": %s,
+                       "data": %s
+                       """,
+                status, message, data.toString()
+        );
+    }
 }

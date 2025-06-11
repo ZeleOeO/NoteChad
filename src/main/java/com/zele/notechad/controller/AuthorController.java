@@ -25,8 +25,4 @@ public class AuthorController {
         return authorService.getAuthorById(id);
     }
 
-    @PostMapping("/new")
-    public ApiResponse<AuthorViewDTO> addAuthor(@RequestBody AuthorCreateRequest createRequest) {
-        return authorService.createAuthor(createRequest);
-    }
 }
