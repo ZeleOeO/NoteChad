@@ -1,6 +1,6 @@
 package com.zele.notechad.security;
 
-import com.zele.notechad.tools.SecretKeyGenerator;
+import com.zele.notechad.util.SecretKeyGenerator;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;

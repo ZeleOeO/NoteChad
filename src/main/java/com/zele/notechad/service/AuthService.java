@@ -11,15 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-@Service
-@AllArgsConstructor
-public class AuthService {
-    private final AuthenticationManager authenticationManager;
-    private final JwtService jwtService;
-
-    public ApiResponse<String> login(AuthorLoginRequest request) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        if (!authentication.isAuthenticated()) throw new AuthorAuthenticationException("Authentication failed");
-        return new ApiResponse<>(HttpStatus.OK.value(), "User Authenticated", jwtService.generateToken(request.getUsername()));
-    }
+public interface AuthService {
+    ApiResponse<String> login(AuthorLoginRequest request);
 }

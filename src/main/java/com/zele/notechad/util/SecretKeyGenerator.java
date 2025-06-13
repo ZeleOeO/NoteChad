@@ -1,4 +1,4 @@
-package com.zele.notechad.tools;
+package com.zele.notechad.util;
 
 import com.zele.notechad.exception.GenericException;
 
